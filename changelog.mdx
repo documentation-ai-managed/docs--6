@@ -1,0 +1,138 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and fixes in Дмитрий Белоусov's documentation platform.
+---
+
+## Recent Updates
+
+Stay informed about the latest releases. You receive automatic notifications for major versions, and check this page regularly for detailed changelogs.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors in themes, enabling you to set `{brandColor: "#3B82F6"}` in your config.
+- Introduced Mermaid diagram rendering with automatic syntax validation for flowcharts and sequences.
+- New `<Video>` component for embedding YouTube and self-hosted videos with accessibility controls.
+
+## Improvements
+
+- Enhanced MDX parsing speed by 40% for pages with nested components.
+- Better error messages for invalid JSX attributes, such as unescaped `{` characters.
+
+## Bug Fixes
+
+- Fixed parsing errors in nested code blocks using 4 backticks.
+- Resolved heading hierarchy issues when skipping from H2 to H4.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- `<Columns>` component now supports up to 5 columns with responsive breakpoints.
+- Added `ParamField` and `ResponseField` for API documentation with automatic sidebar rendering.
+
+## Bug Fixes
+
+- Corrected self-closing tags for components like `<ParamField />`.
+- Fixed icon rendering for Lucide icons such as `book-open` and `zap`.
+
+## Improvements
+
+- Updated default theme to better support dark mode toggles.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Initial Release
+
+- Core MDX components including `<Callout>`, `<Card>`, `<Steps>`, and `<Tabs>`.
+- YAML frontmatter validation with no blank lines allowed.
+- Full support for escaping special characters like `{variable}` and `<Component>`.
+
+## Breaking Changes
+
+- Removed legacy H1 support; all pages now require frontmatter titles and start with H2.
+
+</Update>
+
+<Callout kind="alert">
+Before upgrading, review breaking changes in v1.0.0. Backup your `docs/` directory and test in a staging environment.
+</Callout>
+
+## Upgrade Guide
+
+Follow these steps to update your Дмитрий Белоусов documentation site to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="package">
+    Run the version check command to see your installed release.
+
+````bash
+npx @belousov/docs version
+````
+  </Step>
+  <Step title="Update Package" icon="download">
+    Use your preferred package manager to install the latest version.
+
+    <CodeGroup tabs="npm,yarn,pnpm">
+````bash
+npm install @belousov/docs@latest
+````
+````bash
+yarn add @belousov/docs@latest
+````
+````bash
+pnpm add @belousov/docs@latest
+````
+    </CodeGroup>
+  </Step>
+  <Step title="Rebuild Site" icon="rocket">
+    Rebuild and serve your documentation locally.
+
+````bash
+npm run docs:build
+npm run docs:dev
+````
+  </Step>
+  <Step title="Verify Changes" icon="check-circle">
+    Open `https://localhost:3000/changelog` and confirm new features like enhanced `<Update>` tags render correctly.
+  </Step>
+</Steps>
+
+## Upcoming Roadmap
+
+Discover what's next for Дмитрий Белоусov's platform. These features prioritize developer experience and visual enhancements.
+
+<Columns cols={3}>
+  <Card title="AI Component Generator" icon="bot" href="#">
+    Automatically generate MDX pages from natural language prompts.
+  </Card>
+  <Card title="Real-time Collaboration" icon="users" href="#">
+    Edit documentation with teams using live cursors and comments.
+  </Card>
+  <Card title="Advanced Analytics" icon="bar-chart-3" href="#">
+    Track page views, component usage, and reader engagement metrics.
+  </Card>
+</Columns>
+
+## Deprecations and Known Issues
+
+<Expandable title="Deprecated Components (v1.2.0)" default-open="true">
+The following components are deprecated and will be removed in v2.0.0:
+
+| Component     | Replacement          | Reason                  |
+|---------------|----------------------|-------------------------|
+| `<OldTable>` | Markdown tables     | Native MDX tables faster |
+| `<LegacyCard>` | `<Card>`           | Improved accessibility |
+
+Update your pages now to avoid warnings.
+</Expandable>
+
+<Expandable title="Future Roadmap Highlights">
+- Q4 2024: Full TypeScript support for custom components.
+- Q1 2025: Integration with `https://api.example.com` for dynamic content.
+</Expandable>
